@@ -2,7 +2,8 @@ import java.util.Iterator;
 
 public class FixedCapacityStack<Item> implements java.lang.Iterable<Item> {
 
-	private Item[] a; // stack entries
+	@SuppressWarnings("unchecked")
+	private Item[] a = (Item[]) new Object[1];; // stack entries
 	private int N; // size
 
 	@SuppressWarnings("unchecked")
