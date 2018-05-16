@@ -1,4 +1,6 @@
-public class FixedCapacityStack<Item> {
+import java.util.Iterator;
+
+public class FixedCapacityStack<Item> implements java.lang.Iterable<Item> {
 
 	private Item[] a; // stack entries
 	private int N; // size
@@ -39,6 +41,25 @@ public class FixedCapacityStack<Item> {
 		if (N > 0 && N == a.length / 4)
 			resize(a.length / 2);
 		return item;
+	}
+
+	public Iterator<Item> iterator() {
+		return new ReverseArrayIterator();
+	}
+
+	private class ReverseArrayIterator implements Iterator<Item> {
+		private int i = N;
+
+		public boolean hasNext() {
+			return i > 0;
+		}
+
+		public Item next() {
+			return a[--i];
+		}
+
+		public void remove() {
+		}
 	}
 
 	public static void main(String[] args) {
