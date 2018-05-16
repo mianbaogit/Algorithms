@@ -13,7 +13,6 @@ public class Bag<Item> implements java.lang.Iterable<Item> {
 		first = new Node();
 		first.item = item;
 		first.next = old;
-
 	}
 
 	public Iterator<Item> iterator() {
