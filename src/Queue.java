@@ -1,3 +1,4 @@
+
 import java.util.Iterator;
 
 public class Queue<Item> implements java.lang.Iterable<Item> {
@@ -25,7 +26,7 @@ public class Queue<Item> implements java.lang.Iterable<Item> {
 
 	public void enQueue(Item item) {
 		Node oldLast = last;
-		Node last = new Node();
+		last = new Node();
 		last.item = item;
 		last.next = null;
 		if (this.isEmpty())

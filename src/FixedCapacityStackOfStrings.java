@@ -1,3 +1,6 @@
+import edu.princeton.cs.algs4.*;
+
+
 public class FixedCapacityStackOfStrings {
 
 	public static void main(String[] args) {
@@ -20,7 +23,10 @@ public class FixedCapacityStackOfStrings {
 	public FixedCapacityStackOfStrings(int cap) {
 		a = new String[cap];
 	}
-
+    // EXERCISES 1.3.1
+	public boolean isFull() {
+		return N == a.length;
+	}
 	public boolean isEmpty() {
 		return N == 0;
 	}

@@ -1,4 +1,6 @@
+
 import java.util.Iterator;
+import edu.princeton.cs.algs4.*;
 
 public class FixedCapacityStack<Item> implements java.lang.Iterable<Item> {
 

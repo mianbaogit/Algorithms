@@ -1,12 +1,13 @@
 import java.util.Iterator;
+import edu.princeton.cs.algs4.*;
 
 public class Stack<Item> implements java.lang.Iterable<Item> {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		FixedCapacityStack<String> s = new FixedCapacityStack<String>(100);
+	public static void main(String[] args) { // Create a stack and push/pop strings as directed on StdIn.
+		Stack<String> s = new Stack<String>();
 		while (!StdIn.isEmpty()) {
 			String item = StdIn.readString();
+			StdOut.println("(" + item + ")");
 			if (!item.equals("-"))
 				s.push(item);
 			else if (!s.isEmpty())
@@ -36,6 +37,11 @@ public class Stack<Item> implements java.lang.Iterable<Item> {
 		first = node.next;
 		node.next = null;
 		N--;
+		return node.item;
+	}
+	
+	public Item peak() {
+		Node node = first;
 		return node.item;
 	}
 
