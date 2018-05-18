@@ -1,5 +1,6 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import implementation.Stack;
 
 public class E1D3D10 {
 
