@@ -6,7 +6,6 @@ public class Parentheses {
 	 * private static List<String> LeftParentheses = new ArrayList<String>() {{
 	 * add("["); add("{"); add("("); }};
 	 */
-	@SuppressWarnings("serial")
 	private static Map<String, String> PairParentheses = new HashMap<String, String>() {
 		{
 			put("]", "[");
