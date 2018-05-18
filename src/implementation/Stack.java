@@ -1,4 +1,5 @@
 package implementation;
+
 import java.util.Iterator;
 import edu.princeton.cs.algs4.*;
 
@@ -33,14 +34,13 @@ public class Stack<Item> implements java.lang.Iterable<Item> {
 		N++;
 	}
 
-	public Item pop() {
-		Node node = first;
-		first = node.next;
-		node.next = null;
+	public Item pop() { // Remove item from top of stack.
+		Item item = first.item;
+		first = first.next;
 		N--;
-		return node.item;
+		return item;
 	}
-	
+
 	public Item peak() {
 		Node node = first;
 		return node.item;
