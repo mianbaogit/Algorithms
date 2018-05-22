@@ -1,6 +1,8 @@
 package implementation;
 
-public class Steque<Item> {
+import java.util.Iterator;
+
+public class Steque<Item> implements java.lang.Iterable<Item> {
 
 	private class Node {
 		Item item;
@@ -51,4 +53,23 @@ public class Steque<Item> {
 		n++;
 
 	}
+
+	public Iterator<Item> iterator() {
+		return new StequeIterator();
+	}
+
+	private class StequeIterator implements Iterator<Item> {
+		private Node current = first;
+
+		public boolean hasNext() {
+			return current != null;
+		}
+
+		public Item next() {
+			Item x = current.item;
+			current = current.next;
+			return x;
+		}
+	}
+
 }
