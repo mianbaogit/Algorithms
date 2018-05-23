@@ -14,7 +14,7 @@ import edu.princeton.cs.algs4.StdRandom;
  */
 public class RandomBag<Item> implements Iterable<Item> {
 
-	private Node first;
+	private Node<Item> first;
 	private int n;
 
 	public RandomBag() {
@@ -22,9 +22,9 @@ public class RandomBag<Item> implements Iterable<Item> {
 		first = null;
 	}
 
-	private class Node {
+	private static class Node<Item> {
 		Item item;
-		Node next;
+		Node<Item> next;
 	}
 
 	public boolean isEmpty() {
@@ -36,8 +36,8 @@ public class RandomBag<Item> implements Iterable<Item> {
 	}
 
 	public void add(Item item) {
-		Node old = first;
-		first = new Node();
+		Node<Item> old = first;
+		first = new Node<Item>();
 		first.item = item;
 		first.next = old;
 		n++;
@@ -47,9 +47,10 @@ public class RandomBag<Item> implements Iterable<Item> {
 		int i = 0;
 		private Item[] items = null;
 
+		
 		public RandomBagIterator() {
 			items = (Item[]) new Object[n];
-			Node temp = first;
+			Node<Item> temp = first;
 			int j = 0;
 			while (temp != null) {
 				items[j] = temp.item;

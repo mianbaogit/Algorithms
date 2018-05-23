@@ -1,46 +1,86 @@
 package implementation;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Bag<Item> implements java.lang.Iterable<Item> {
-	private Node first;
+	private Node<Item> first;
+	private int n;
 
-	private class Node {
-		Item item;
-		Node next;
+	private static class Node<Item> {
+		private Item item;
+		private Node<Item> next;
+	}
+
+	public Bag() {
+		first = null;
+		n = 0;
+	}
+
+	public int size() {
+		return n;
+	}
+
+	public boolean isEmpty() {
+		return first == null;
 	}
 
 	public void add(Item item) {
-		Node old = first;
-		first = new Node();
+		Node<Item> old = first;
+		first = new Node<Item>();
 		first.item = item;
 		first.next = old;
+		n++;
 	}
 
 	public Iterator<Item> iterator() {
-		// TODO Auto-generated method stub
-		return new ListIterator();
+		return new ListIterator(first);
 	}
 
+	// an iterator, doesn't implement remove() since it's optional
 	private class ListIterator implements Iterator<Item> {
+		private Node<Item> current;
 
-		private Node current = first;
+		public ListIterator(Node<Item> first) {
+			current = first;
+		}
 
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
 			return current != null;
 		}
 
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
 		public Item next() {
+			if (!hasNext())
+				throw new NoSuchElementException();
 			Item item = current.item;
 			current = current.next;
 			return item;
 		}
-
-		public void remove() {
-			// TODO Auto-generated method stub
-		}
-
 	}
+	
+	 /**
+     * Unit tests the {@code Bag} data type.
+     *
+     * @param args the command-line arguments
+     */
+    public static void main(String[] args) {
+        Bag<String> bag = new Bag<String>();
+        while (!StdIn.isEmpty()) {
+            String item = StdIn.readString();
+            bag.add(item);
+        }
+
+		StdOut.println("size of bag = " + bag.size());
+        for (String s : bag) {
+            StdOut.println(s);
+        }
+    }
 
 }

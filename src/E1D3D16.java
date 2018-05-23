@@ -1,13 +1,13 @@
 import edu.princeton.cs.algs4.Date;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
-import implementation.ResizingArrayQueueOfStrings;
+import implementation.ResizingArrayQueue;
 
 public class E1D3D16 {
 
 	public static Date[] readDates(String name) {
 		In in = new In(name);
-		ResizingArrayQueueOfStrings<Date> q = new ResizingArrayQueueOfStrings<Date>();
+		ResizingArrayQueue<Date> q = new ResizingArrayQueue<Date>();
 		while (!in.isEmpty())
 			q.enqueue(new Date(in.readString()));
 		int N = q.size();

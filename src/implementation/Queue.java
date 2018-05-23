@@ -8,13 +8,13 @@ public class Queue<Item> implements java.lang.Iterable<Item> {
 		// TODO Auto-generated method stub
 	}
 
-	private class Node {
+	private static class Node<Item> {
 		Item item;
-		Node next;
+		Node<Item> next;
 	}
 
-	private Node first;
-	private Node last;
+	private Node<Item> first;
+	private Node<Item> last;
 	private int N = 0;
 
 	public boolean isEmpty() {
@@ -47,7 +47,7 @@ public class Queue<Item> implements java.lang.Iterable<Item> {
 	}
 	
 	private class ListIterator implements java.util.Iterator<Item>{
-		private Node current = first;
+		private Node<Item> current = first;
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
 			return current != null;
